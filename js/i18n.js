@@ -159,7 +159,7 @@
             navExperience: 'الخبرة',
             navContact: 'التواصل',
             heroGreeting: 'مرحباً،',
-            heroName: 'أنا نزهة لحبري.',
+            heroName: 'أنا نزهة الحبيري.',
             heroBuild1: 'أبني',
             heroBuild2: 'الذكاء الاصطناعي',
             heroBuild3: 'الذي يحل مشاكل حقيقية.',
