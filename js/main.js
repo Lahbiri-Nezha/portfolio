@@ -202,27 +202,6 @@
         });
     }
 
-    /* ---- Skills Category Filter ---- */
-    function initSkillsFilter() {
-        var links = document.querySelectorAll('.skill-cat-link');
-        var panels = document.querySelectorAll('.skills-scroll');
-        if (!links.length || !panels.length) return;
-        links.forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                var cat = this.getAttribute('data-cat');
-                links.forEach(function(l) { l.classList.remove('active'); });
-                this.classList.add('active');
-                panels.forEach(function(p) {
-                    p.classList.remove('active');
-                    if (p.getAttribute('data-skill-cat') === cat) {
-                        p.classList.add('active');
-                    }
-                });
-            });
-        });
-    }
-
     /* ---- Navbar Scroll ---- */
     function initNavbarScroll() {
         var navbar = document.querySelector('.nav-inner');
@@ -253,7 +232,6 @@
         initRipple();
         initParallax();
         initSmoothScroll();
-        initSkillsFilter();
         initNavbarScroll();
     }
 
