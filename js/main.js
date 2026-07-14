@@ -276,6 +276,127 @@
         });
     }
 
+    /* ---- Project Modal ---- */
+    function initProjectModal() {
+        var modal = document.getElementById('projectModal');
+        if (!modal) return;
+        var lang = document.documentElement.getAttribute('data-lang') || 'en';
+        var imgEl = document.getElementById('pmImg');
+        var badgeEl = document.getElementById('pmBadge');
+        var titleEl = document.getElementById('pmTitle');
+        var detailEl = document.getElementById('pmDetail');
+        var stackEl = document.getElementById('pmStack');
+        var linksEl = document.getElementById('pmLinks');
+
+        function getTranslation(key) {
+            var currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+            if (window.translations && window.translations[currentLang] && window.translations[currentLang][key]) {
+                return window.translations[currentLang][key];
+            }
+            return key;
+        }
+
+        document.querySelectorAll('.project-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('.project-links a')) return;
+                var titleKey = this.getAttribute('data-title-key') || '';
+                var detailKey = this.getAttribute('data-detail-key') || '';
+                var badgeKey = this.getAttribute('data-badge-key') || '';
+                var img = this.getAttribute('data-img') || '';
+                var stack = this.getAttribute('data-stack') || '';
+                var github = this.getAttribute('data-github') || '';
+                var demo = this.getAttribute('data-demo') || '';
+
+                imgEl.src = img;
+                imgEl.alt = getTranslation(titleKey);
+                badgeEl.textContent = getTranslation(badgeKey);
+                titleEl.textContent = getTranslation(titleKey);
+                detailEl.textContent = getTranslation(detailKey);
+
+                stackEl.innerHTML = '';
+                stack.split(',').forEach(function(s) {
+                    var span = document.createElement('span');
+                    span.textContent = s.trim();
+                    stackEl.appendChild(span);
+                });
+
+                linksEl.innerHTML = '';
+                if (github) {
+                    var ghLink = document.createElement('a');
+                    ghLink.href = github;
+                    ghLink.target = '_blank';
+                    ghLink.className = 'pm-github';
+                    ghLink.textContent = 'GitHub ↗';
+                    linksEl.appendChild(ghLink);
+                }
+                if (demo && demo !== '#') {
+                    var demoLink = document.createElement('a');
+                    demoLink.href = demo;
+                    demoLink.target = '_blank';
+                    demoLink.className = 'pm-demo';
+                    demoLink.textContent = 'Live Demo ↗';
+                    linksEl.appendChild(demoLink);
+                }
+
+                modal.classList.add('open');
+            });
+        });
+    }
+
+    /* ---- Cert Modal ---- */
+    function initCertModal() {
+        var modal = document.getElementById('certModal');
+        if (!modal) return;
+        var imgEl = document.getElementById('cmImg');
+        var nameEl = document.getElementById('cmName');
+        var sourceEl = document.getElementById('cmSource');
+        var descEl = document.getElementById('cmDesc');
+        var verifyEl = document.getElementById('cmVerify');
+
+        function getTranslation(key) {
+            var currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+            if (window.translations && window.translations[currentLang] && window.translations[currentLang][key]) {
+                return window.translations[currentLang][key];
+            }
+            return key;
+        }
+
+        document.querySelectorAll('.cert-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                var nameKey = this.getAttribute('data-name-key') || '';
+                var source = this.getAttribute('data-source') || '';
+                var year = this.getAttribute('data-year') || this.getAttribute('data-year-key') || '';
+                var descKey = this.getAttribute('data-desc-key') || '';
+                var img = this.getAttribute('data-img') || '';
+                var url = this.getAttribute('data-url') || '#';
+
+                if (year && year.indexOf('cert') === 0) {
+                    year = getTranslation(year);
+                }
+
+                imgEl.src = img;
+                imgEl.alt = getTranslation(nameKey);
+                nameEl.textContent = getTranslation(nameKey);
+                sourceEl.textContent = source + ' — ' + year;
+                descEl.textContent = getTranslation(descKey);
+                verifyEl.href = url;
+
+                modal.classList.add('open');
+            });
+        });
+    }
+
+    /* ---- ESC Key Close ---- */
+    function initEscapeClose() {
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                document.querySelectorAll('.exp-modal.open, .project-modal.open, .cert-modal.open, .cv-modal.open').forEach(function(modal) {
+                    modal.classList.remove('open');
+                });
+            }
+        });
+    }
+
     /* ---- Init All ---- */
     function init() {
         initPageLoader();
@@ -290,6 +411,9 @@
         initParallax();
         initSmoothScroll();
         initTimelineModal();
+        initProjectModal();
+        initCertModal();
+        initEscapeClose();
         initNavbarScroll();
     }
 
