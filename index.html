@@ -39,9 +39,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css?v=4">
-    <link rel="stylesheet" href="css/animations.css?v=4">
-    <link rel="stylesheet" href="css/rtl.css?v=4">
+    <link rel="stylesheet" href="css/style.css?v=5">
+    <link rel="stylesheet" href="css/animations.css?v=5">
+    <link rel="stylesheet" href="css/rtl.css?v=5">
 </head>
 <body>
     <div class="page-loader" id="pageLoader">
@@ -52,7 +52,6 @@
 
     <a href="#main" class="skip-nav" data-i18n="skipNav">Skip to content</a>
     <div class="scroll-progress" id="scrollProgress"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
 
     <div class="site-container">
         <nav class="navbar" id="navbar">
@@ -383,36 +382,36 @@
                     <p class="section-label" data-i18n="experienceLabel">Experience & Education</p>
                     <h2 class="section-heading" data-i18n="experienceHeading">My<br><span class="text-highlight">Journey</span></h2>
                     <div class="timeline">
-                        <div class="timeline-entry" data-reveal>
+                        <button class="timeline-entry" data-reveal data-title="Engineering Degree — Data Science, Big Data & AI" data-place="ENSA Agadir" data-date="2025 – Present" data-desc="Pursuing a specialized engineering degree in Data Science, Big Data & Artificial Intelligence. Working on advanced ML projects and building real-world AI systems.">
                             <span class="timeline-date">2025 – Present</span>
                             <h3 class="timeline-title" data-i18n="exp1Title">Engineering Degree — Data Science, Big Data & AI</h3>
                             <p class="timeline-place" data-i18n="exp1Place">ENSA Agadir</p>
-                        </div>
-                        <div class="timeline-entry" data-reveal>
+                        </button>
+                        <button class="timeline-entry" data-reveal data-title="AI-Powered Fashion Styling Platform" data-place="Injaz Al-Maghrib Programme" data-date="2024 – 2025" data-desc="Led a team to design a web platform recommending personalised outfits based on weather, event type and user preferences. Selected for the Injaz Al-Maghrib entrepreneurship programme.">
                             <span class="timeline-date">2024 – 2025</span>
                             <h3 class="timeline-title" data-i18n="exp4Title">AI-Powered Fashion Styling Platform</h3>
                             <p class="timeline-place" data-i18n="exp4Place">Injaz Al-Maghrib Programme</p>
-                        </div>
-                        <div class="timeline-entry" data-reveal>
+                        </button>
+                        <button class="timeline-entry" data-reveal data-title="Integrated Preparatory Classes" data-place="ENSA Agadir — Math, Physics & CS" data-date="2022 – 2025" data-desc="Three-year intensive preparatory cycle covering advanced mathematics, physics and computer science fundamentals, building the foundation for engineering studies.">
                             <span class="timeline-date">2022 – 2025</span>
                             <h3 class="timeline-title" data-i18n="exp2Title">Integrated Preparatory Classes</h3>
                             <p class="timeline-place" data-i18n="exp2Place">ENSA Agadir — Math, Physics & CS</p>
-                        </div>
-                        <div class="timeline-entry" data-reveal>
+                        </button>
+                        <button class="timeline-entry" data-reveal data-title="Smart Clock — Robotics & IoT" data-place="Inter-engineering-school Competition" data-date="2022 – 2023" data-desc="Designed and built a smart clock using Arduino microcontrollers and multi-sensor systems. Competed against other engineering schools in a national robotics and IoT competition.">
                             <span class="timeline-date">2022 – 2023</span>
                             <h3 class="timeline-title" data-i18n="exp5Title">Smart Clock — Robotics & IoT</h3>
                             <p class="timeline-place" data-i18n="exp5Place">Inter-engineering-school Competition</p>
-                        </div>
-                        <div class="timeline-entry" data-reveal>
+                        </button>
+                        <button class="timeline-entry" data-reveal data-title="Baccalaureate — Mathematics B" data-place="Lycée Mohammed VI d'Excellence" data-date="2019 – 2022" data-desc="Earned the Baccalaureate in Mathematics B with honours from one of Morocco's top secondary schools.">
                             <span class="timeline-date">2019 – 2022</span>
                             <h3 class="timeline-title" data-i18n="exp3Title">Baccalaureate — Mathematics B</h3>
                             <p class="timeline-place" data-i18n="exp3Place">Lycée Mohammed VI d'Excellence</p>
-                        </div>
-                        <div class="timeline-entry" data-reveal>
+                        </button>
+                        <button class="timeline-entry" data-reveal data-title="Enactus Club Member" data-place="ENSA Agadir" data-date="2023" data-desc="Active member of the Enactus club, contributing to social entrepreneurship projects focused on community impact and sustainable solutions.">
                             <span class="timeline-date">2023</span>
                             <h3 class="timeline-title" data-i18n="exp6Title">Enactus Club Member</h3>
                             <p class="timeline-place" data-i18n="exp6Place">ENSA Agadir</p>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -473,9 +472,10 @@
         </footer>
     </div>
 
-    <script src="js/theme.js?v=3"></script>
-    <script src="js/i18n.js?v=3"></script>
-    <script src="js/main.js?v=3"></script>
+    <div class="cursor-circle" id="cursorCircle"></div>
+    <script src="js/theme.js?v=5"></script>
+    <script src="js/i18n.js?v=5"></script>
+    <script src="js/main.js?v=5"></script>
 
     <!-- CV Modal -->
     <div class="cv-modal" id="cvModal">
@@ -483,6 +483,18 @@
         <div class="cv-modal-content">
             <button class="cv-modal-close" onclick="document.getElementById('cvModal').classList.remove('open')">&times;</button>
             <iframe src="assets/Nezha_LAHBIRI_CV_EN.pdf" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Experience Modal -->
+    <div class="exp-modal" id="expModal">
+        <div class="exp-modal-overlay" onclick="document.getElementById('expModal').classList.remove('open')"></div>
+        <div class="exp-modal-content">
+            <button class="exp-modal-close" onclick="document.getElementById('expModal').classList.remove('open')">&times;</button>
+            <span class="exp-modal-date" id="expModalDate"></span>
+            <h3 class="exp-modal-title" id="expModalTitle"></h3>
+            <p class="exp-modal-place" id="expModalPlace"></p>
+            <p class="exp-modal-desc" id="expModalDesc"></p>
         </div>
     </div>
 </body>
