@@ -28,8 +28,9 @@
     /* ---- Custom Cursor Circle ---- */
     function initCursorCircle() {
         var circle = document.getElementById('cursorCircle');
-        if (!circle || window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(hover: none)').matches) return;
+        if (!circle) return;
         var mx = 0, my = 0, cx = 0, cy = 0;
+        var isTouch = false;
         var interactiveEls = 'a, button, .skill-pill, .project-card, .cert-item, .magnetic, .lang-btn, .nav-links a, .btn, .btn-resume, .hero-actions a, .timeline-entry';
         document.addEventListener('mousemove', function(e) {
             mx = e.clientX;
@@ -42,6 +43,23 @@
         document.addEventListener('mouseenter', function() {
             circle.classList.add('visible');
         });
+        document.addEventListener('touchstart', function(e) {
+            isTouch = true;
+            if (e.touches.length) {
+                mx = e.touches[0].clientX;
+                my = e.touches[0].clientY;
+            }
+            circle.classList.add('visible');
+        }, { passive: true });
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length) {
+                mx = e.touches[0].clientX;
+                my = e.touches[0].clientY;
+            }
+        }, { passive: true });
+        document.addEventListener('touchend', function() {
+            circle.classList.remove('visible');
+        }, { passive: true });
         document.addEventListener('mouseover', function(e) {
             if (e.target.closest(interactiveEls)) {
                 circle.classList.add('hovering');
