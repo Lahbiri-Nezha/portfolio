@@ -1,0 +1,74 @@
+/* ===========================
+   RTL — ARABIC
+   =========================== */
+
+/* Base direction */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+[dir="rtl"] body { font-family: var(--font-arabic); }
+
+/* Nav */
+[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+[dir="rtl"] .nav-controls { flex-direction: row-reverse; }
+
+/* Hero */
+[dir="rtl"] .hero { text-align: right; }
+[dir="rtl"] .hero-greeting { direction: rtl; }
+[dir="rtl"] .hero-name { direction: rtl; }
+[dir="rtl"] .hero-name-sub { direction: rtl; }
+[dir="rtl"] .hero-actions { justify-content: flex-end; }
+[dir="rtl"] .hero-socials { justify-content: flex-end; }
+[dir="rtl"] .hero-typing { text-align: right; }
+
+/* Section labels & headings */
+[dir="rtl"] .section-label { letter-spacing: 0.02em; }
+[dir="rtl"] .section-heading,
+[dir="rtl"] .project-title,
+[dir="rtl"] .timeline-title {
+    font-family: var(--font-arabic);
+}
+
+/* Projects */
+[dir="rtl"] .project-badge { left: auto; right: 14px; }
+[dir="rtl"] .project-stack { justify-content: flex-end; }
+[dir="rtl"] .project-links { justify-content: flex-end; }
+
+/* About */
+[dir="rtl"] .about-text { text-align: right; }
+[dir="rtl"] .about-facts { direction: rtl; }
+[dir="rtl"] .fact-item { text-align: right; }
+
+/* Skills */
+[dir="rtl"] .skills-wrap { justify-content: flex-end; }
+
+/* Timeline */
+[dir="rtl"] .timeline { direction: rtl; }
+[dir="rtl"] .timeline-entry { padding-left: 0; padding-right: 28px; }
+[dir="rtl"] .timeline-dot { left: auto; right: -6px; }
+[dir="rtl"] .timeline-line { left: auto; right: 0; }
+[dir="rtl"] .timeline-header { flex-direction: row-reverse; }
+[dir="rtl"] .timeline-date { margin-right: 0; margin-left: 16px; }
+[dir="rtl"] .timeline-place { text-align: right; }
+
+/* Contact */
+[dir="rtl"] .contact-info { direction: rtl; }
+[dir="rtl"] .contact-item { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .contact-item p { text-align: right; }
+
+/* Footer */
+[dir="rtl"] .footer-text { text-align: right; }
+
+/* Certifications */
+[dir="rtl"] .cert-card { text-align: right; }
+
+/* Responsive RTL */
+@media (max-width: 768px) {
+    [dir="rtl"] .hero { text-align: center; }
+    [dir="rtl"] .hero-actions { justify-content: center; }
+    [dir="rtl"] .hero-socials { justify-content: center; }
+    [dir="rtl"] .hero-typing { text-align: center; }
+    [dir="rtl"] .about-facts { direction: rtl; }
+    [dir="rtl"] .contact-info { align-items: center; }
+}
