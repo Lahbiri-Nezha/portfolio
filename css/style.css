@@ -653,25 +653,83 @@ ul { list-style: none; }
 /* ===========================
    SKILLS — FLOATING CAPSULES
    =========================== */
-.skills-cloud {
+/* ===========================
+   SKILLS — CATEGORIZED SCROLL
+   =========================== */
+.skills-categories {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
     justify-content: center;
-    max-width: 900px;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+.skill-cat-link {
+    padding: 8px 20px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-tertiary);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--pill-radius);
+    background: transparent;
+    transition: all 0.3s var(--ease-out);
+    cursor: pointer;
+}
+.skill-cat-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+.skill-cat-link.active {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+}
+
+.skills-scroll-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.skills-scroll {
+    display: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 0 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+    cursor: default;
+}
+.skills-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+.skills-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.skills-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+.skills-scroll.active {
+    display: block;
+    animation: fadeUp 0.35s var(--ease-out);
+}
+.skills-scroll-inner {
+    display: flex;
+    gap: 10px;
+    width: max-content;
 }
 
 .skill-pill {
     padding: 10px 24px;
     font-size: 0.88rem;
     font-weight: 500;
+    white-space: nowrap;
     background: var(--bg-card-solid);
     border: 1px solid var(--color-border);
     border-radius: var(--pill-radius);
     color: var(--color-secondary);
     transition: all 0.3s var(--ease-out);
     cursor: default;
+    user-select: none;
 }
 .skill-pill:hover {
     background: var(--color-accent);
@@ -885,8 +943,14 @@ html[dir="rtl"] .about-text {
 html[dir="rtl"] .about-facts {
     direction: rtl;
 }
-html[dir="rtl"] .skills-wrap {
-    justify-content: flex-end;
+html[dir="rtl"] .skills-categories {
+    direction: rtl;
+}
+html[dir="rtl"] .skills-scroll-inner {
+    direction: rtl;
+}
+html[dir="rtl"] .skill-pill {
+    font-family: var(--font-arabic);
 }
 html[dir="rtl"] .timeline {
     direction: rtl;

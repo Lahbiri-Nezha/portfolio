@@ -41,7 +41,9 @@
 [dir="rtl"] .fact-item { text-align: right; }
 
 /* Skills */
-[dir="rtl"] .skills-wrap { justify-content: flex-end; }
+[dir="rtl"] .skills-categories { direction: rtl; }
+[dir="rtl"] .skills-scroll-inner { direction: rtl; }
+[dir="rtl"] .skill-pill { font-family: var(--font-arabic); }
 
 /* Timeline */
 [dir="rtl"] .timeline { direction: rtl; }
